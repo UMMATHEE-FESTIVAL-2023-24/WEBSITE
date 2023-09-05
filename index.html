@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,15 +64,7 @@
                 <a href="#testimonial" class="nav-item nav-link">Live</a>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
-            <script>
-                // Close the mobile menu when clicked
-                $('.navbar-nav a').click(function() {
-                    if ($(this).closest('.navbar-collapse').length) {
-                        return;
-                    }
-                    $(".navbar-collapse").collapse("hide");
-                });
-            </script>
+           
         </div>
     </nav>
     
@@ -111,7 +103,7 @@
         <div class="modal-dialog">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Fest Logo Loaging</h3>
+                    <h3 class="modal-title" id="exampleModalLabel">Fest Logo Launching</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -510,38 +502,37 @@
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                  
-    <form id="contactForm">
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                    <label for="name">Your Name</label>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-                    <label for="email">Your Email</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                    <label for="subject">Subject</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
-                    <label for="message">Message</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
-            </div>
-        </div>
-    </form>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>
@@ -621,32 +612,17 @@
             }
         });
     </script>
-
+ <script>
+                // Close the mobile menu when clicked
+                $('.navbar-nav a').click(function() {
+                    if ($(this).closest('.navbar-collapse').length) {
+                        return;
+                    }
+                    $(".navbar-collapse").collapse("hide");
+                });
+            </script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#contactForm').submit(function (e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: 'https://script.google.com/macros/s/AKfycbzAAAAAAAAAAAoEirWhFg88dZy-ZdLmB-oFqUr6Fd4/exec',
-                    type: 'POST',
-                    data: formData,
-                    success: function (response) {
-                        // Do something with the successful response
-                        console.log(response);
-                        // Optionally, you can show a thank you message or redirect to a thank you page.
-                    },
-                    error: function (error) {
-                        // Handle any errors here
-                        console.error(error);
-                    },
-                    processData: false,
-                    contentType: false
-                });
-            });
-        });
-    </script>
+</body>
 </html>
