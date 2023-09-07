@@ -28,24 +28,6 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-</style>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -504,37 +486,38 @@
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                    <h2>Feedback</h2>
 
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Group Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                   <form id="gform" method="post" action="https://script.google.com/macros/s/AKfycbxhu9cggr8XqgWTennOg-8PrarZzO0tQ2v_uRZjOPDGNivbbaRsEcp-tRMJK6lt4L3L/exec">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+                                <label for="name">Your Name</label>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                <label for="subject">Group Name</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input type="submit" value="Submit" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </div>
+                </form>
+                
 
                 </div>
             </div>
@@ -625,6 +608,43 @@
             </script>
 
 
+<style>
+    .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+<script>$(document).ready(function() {
+    $("#gform").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbxhu9cggr8XqgWTennOg-8PrarZzO0tQ2v_uRZjOPDGNivbbaRsEcp-tRMJK6lt4L3L/exec",
+            data: $("#gform").serialize(),
+            method: "post",
+            success: function(response) {
+                alert("Form submitted successfully");
+                window.location.reload();
+            },
+            error: function(err) {
+                alert("Something went wrong");
+            }
+        })
+    });
+});
+
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
