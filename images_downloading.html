@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloadable Image Gallery</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .image {
+            margin: 10px;
+            cursor: pointer;
+            max-width: 300px; /* Set a maximum width for images */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+            box-sizing: border-box;
+            padding: 20px;
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 80vh; /* Set a maximum height for images */
+            margin-top: 10%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+
+
+    <!-- inaguration stage images -->
+
+
+
+
+    <!-- on stage images -->
+
+
+        <div class="image">
+            <img src="img/fest/aa.jpeg" alt="Image 1">
+        </div>
+        <div class="image">
+            <img src="img/fest/bb.jpeg" alt="Image 2">
+        </div>
+        <div class="image">
+            <img src="img/fest/cc.jpeg" alt="Image 1">
+        </div>
+      
+        
+
+
+    <!-- off stage images -->
+
+
+
+
+
+        <div class="image">
+            <img src="img/off satge/photo1693990300 (1).jpeg" alt="Image 1">
+        </div>
+        <div class="image">
+            <img src="img/off satge/photo1693990300.jpeg" alt="Image 2">
+        </div>
+        <div class="image">
+            <img src="img/off satge/photo1693990349 (1).jpeg" alt="Image 1">
+        </div>
+        <div class="image">
+            <img src="img/off satge/photo1693990349.jpeg" alt="Image 2">
+        </div>
+        <div class="image">
+            <img src="img/off satge/photo1693990394.jpeg" alt="Image 2">
+        </div>
+
+        <!-- Add more images as needed -->
+    </div>
+    
+    <div class="lightbox" id="lightbox">
+        <span class="close-icon">&times;</span>
+        <img id="lightbox-image">
+        <a id="download-button" href="#" download class="download-button">Download</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.image').click(function() {
+                var imgSrc = $(this).find('img').attr('src');
+                $('#lightbox-image').attr('src', imgSrc);
+                $('#lightbox').fadeIn();
+            });
+
+            $('.close-icon').click(function() {
+                $('#lightbox').fadeOut();
+            });
+
+            $('#download-button').click(function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
